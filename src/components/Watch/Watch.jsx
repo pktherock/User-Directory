@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { useFetch } from "../../hooks";
 
 function Watch() {
@@ -7,16 +8,19 @@ function Watch() {
   const [formattedTime, setFormattedTime] = useState("00:00:00");
   const [time, setTime] = useState(0);
 
+  // Get all timezones
   const [countryLoading, countries] = useFetch(
     "http://worldtimeapi.org/api/timezone"
   );
 
+  // get selected zone time (default Asia/Dubai)
   const [timeLoading, timerObj] = useFetch(
     `http://worldtimeapi.org/api/timezone/${country}`
   );
 
   const loading = countryLoading || timeLoading;
 
+  // Set time when timerObj change
   useEffect(() => {
     if (timerObj) {
       const { utc_datetime, utc_offset } = timerObj;
@@ -35,6 +39,7 @@ function Watch() {
     }
   }, [timerObj]);
 
+  // Run when timer stop or start.
   useEffect(() => {
     let timerId;
 

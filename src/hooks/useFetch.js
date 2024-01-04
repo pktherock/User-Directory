@@ -1,6 +1,7 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
+// Custom hook to fetch data for any end point
+// Note: Return new data only if endPoint changes, other wise return same previous data
 function useFetch(endPoint) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(false);
@@ -23,6 +24,7 @@ function useFetch(endPoint) {
     fetchData();
   }, [endPoint]);
 
+  // Return loading data and error state to have access of it inside component
   return [loading, data, error];
 }
 

@@ -5,10 +5,15 @@ import Profile from "./Profile";
 import Posts from "../Posts/Posts";
 
 function UserInfo() {
+  // Get all user from user context
   const { users } = useUser();
+
+  // Get user Id from params
   const { userId } = useParams();
+  
   const navigate = useNavigate();
 
+  // Find user with user id
   const user = users?.find((user) => user.id.toString() === userId);
 
   if (!user) {

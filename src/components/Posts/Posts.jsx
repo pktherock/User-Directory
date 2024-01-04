@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
+
 import { usePost } from "../../contexts";
 import Post from "./Post";
 
 function Posts({ userId }) {
   const { posts } = usePost();
 
+  // Filter all users post based on userId
   const userAllPost = posts.filter((post) => post.userId.toString() === userId);
 
   return (

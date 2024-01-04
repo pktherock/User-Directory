@@ -2,6 +2,7 @@ import { useUser } from "../../contexts";
 import User from "./User";
 
 function Users() {
+  // get all users from user context
   const { users } = useUser();
 
   return (

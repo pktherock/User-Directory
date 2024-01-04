@@ -9,6 +9,7 @@ function Profile({ userInfo }) {
     company: { catchPhrase },
     address: { suite, city, street, zipcode },
   } = userInfo;
+  
   return (
     <div className="mt-4 border-2 rounded-xl px-6 py-8 sm:flex sm:justify-between sm:items-center text-lg sm:text-xl font-medium shadow-lg">
       <div>

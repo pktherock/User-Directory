@@ -1,6 +1,7 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 import { UserInfo, Users } from "./components";
 
+// Root Routing configuration
 const appRoutes = createBrowserRouter([
   {
     path: "",

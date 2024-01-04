@@ -4,10 +4,12 @@ import PropTypes from "prop-types";
 function Post({ postInfo }) {
   const [isOpen, setIsOpen] = useState(false);
 
+  // model ref
   const modalRef = useRef(null);
 
   const { title, body } = postInfo;
 
+  // Run when isOpen change
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
