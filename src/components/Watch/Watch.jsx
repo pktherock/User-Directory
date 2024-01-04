@@ -10,12 +10,12 @@ function Watch() {
 
   // Get all timezones
   const [countryLoading, countries] = useFetch(
-    "http://worldtimeapi.org/api/timezone"
+    "https://worldtimeapi.org/api/timezone"
   );
 
   // get selected zone time (default Asia/Dubai)
   const [timeLoading, timerObj] = useFetch(
-    `http://worldtimeapi.org/api/timezone/${country}`
+    `https://worldtimeapi.org/api/timezone/${country}`
   );
 
   const loading = countryLoading || timeLoading;
