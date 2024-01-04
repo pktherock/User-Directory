@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../../contexts";
 import Watch from "../Watch/Watch";
 import Profile from "./Profile";
@@ -7,8 +7,9 @@ import Posts from "../Posts/Posts";
 function UserInfo() {
   const { users } = useUser();
   const { userId } = useParams();
+  const navigate = useNavigate();
 
-  const user = users.find((user) => user.id.toString() === userId);
+  const user = users?.find((user) => user.id.toString() === userId);
 
   if (!user) {
     return <p className="text-center text-2xl">User not found</p>;
@@ -16,10 +17,15 @@ function UserInfo() {
 
   return (
     <div className="mt-5 px-6">
-      <div className="flex justify-between">
-        <button className="px-5 py-1 bg-gray-400 hover:bg-gray-300 rounded-lg font-semibold text-xl">
-          Back
-        </button>
+      <div className="md:flex md:justify-between">
+        <div className="my-2">
+          <button
+            className="px-3 py-1 md:px-5 bg-gray-400 hover:bg-gray-300 rounded-lg font-semibold md:text-xl"
+            onClick={() => navigate(-1)}
+          >
+            Back
+          </button>
+        </div>
         <Watch />
       </div>
 

@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 
 function Profile({ userInfo }) {
-  console.log(userInfo);
   const {
     name,
     username,
